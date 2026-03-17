@@ -669,8 +669,31 @@
     /* ─── DIVIDER ─── */
     .divider {
       width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(123,92,250,0.15), transparent);
+      height: 100px;
+      position: relative;
+      /* Default: dark purple → dark navy (transição suave padrão) */
+      background: linear-gradient(to bottom, #100C28, #0E0B22);
+    }
+    .divider.d-purple-dark {
+      background: linear-gradient(to bottom, #0E0B22, #100C28);
+    }
+    .divider.d-dark-deeper {
+      background: linear-gradient(to bottom, #100C28, #080620);
+    }
+    .divider.d-deeper-navy {
+      background: linear-gradient(to bottom, #080620, #0E0B22);
+    }
+    .divider.d-same {
+      background: linear-gradient(to bottom, #0E0B22 0%, rgba(90,50,230,0.08) 50%, #0E0B22 100%);
+    }
+    .divider.d-to-black {
+      background: linear-gradient(to bottom, #0E0B22, #000000);
+    }
+    .divider.d-from-black {
+      background: linear-gradient(to bottom, #000000, #0E0B22);
+    }
+    .divider.d-navy-dark {
+      background: linear-gradient(to bottom, #0E0B22, #100C28);
     }
 
     /* ─── LUZES DE FUNDO POR SEÇÃO ─── */
@@ -2143,6 +2166,8 @@
 
 <div class="divider"></div>
 
+<!-- divider: context(#100C28) → para-quem(#0E0B22) — default já correto -->
+
 <!-- FOR WHO -->
 <section id="para-quem" class="theme-purple">
   <div class="container">
@@ -2198,7 +2223,7 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="divider d-purple-dark"></div>
 
 <!-- SERVICES -->
 <section id="servicos" class="theme-white">
@@ -2262,7 +2287,7 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="divider d-dark-deeper"></div>
 
 <!-- QUEM SOMOS -->
 <section class="quem-somos-section" id="quem-somos">
@@ -2299,7 +2324,7 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="divider d-deeper-navy"></div>
 
 <!-- COMO FUNCIONA — Zigzag Wave -->
 <section class="wave-section" id="como-funciona">
@@ -2490,7 +2515,7 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="divider d-same"></div>
 
 <!-- QUALITY -->
 <section class="quality theme-purple">
@@ -2529,7 +2554,7 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="divider d-to-black"></div>
 
 <!-- NÃO IMPORTAMOS -->
 <section class="theme-black">
@@ -2595,7 +2620,7 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="divider d-from-black"></div>
 
 <!-- CTA -->
 <section class="cta-section" id="form">
@@ -2692,7 +2717,7 @@
   </div>
 </div>
 
-<div class="divider"></div>
+<div class="divider d-navy-dark"></div>
 
 <!-- FAQ -->
 <section class="theme-white">
