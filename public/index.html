@@ -1706,26 +1706,32 @@
       position: relative;
       display: inline-block;
       border-radius: 13px;
-      isolation: isolate;
+      padding: 2px;
+      overflow: hidden;
     }
     .btn-glow-outer::before {
       content: '';
       position: absolute;
-      inset: -5px;
-      border-radius: 16px;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
       background: conic-gradient(
         from 0deg,
         transparent 0%,
-        rgba(155,127,255,0) 28%,
-        rgba(180,150,255,0.85) 43%,
+        rgba(155,127,255,0) 20%,
+        rgba(180,150,255,0.9) 40%,
         rgba(230,210,255,1) 50%,
-        rgba(180,150,255,0.85) 57%,
-        rgba(155,127,255,0) 72%,
+        rgba(180,150,255,0.9) 60%,
+        rgba(155,127,255,0) 80%,
         transparent 100%
       );
       animation: btn-spin-glow 2.5s linear infinite;
-      filter: blur(5px);
-      z-index: -1;
+      z-index: 0;
+    }
+    .btn-glow-outer > * {
+      position: relative;
+      z-index: 1;
     }
 
     /* ─── MODAL FORM ─── */
