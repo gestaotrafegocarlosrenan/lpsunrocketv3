@@ -1361,21 +1361,21 @@
       pointer-events: none;
     }
     .quem-somos-bg img {
-      width: 70%; /* Aumentado para trazer o planeta para mais perto do texto */
+      width: 75%;
       height: 100%;
       object-fit: cover;
-      object-position: left center;
+      object-position: center center;
       position: absolute;
       right: 0;
       top: 0;
       opacity: 1;
     }
-    /* The gradient fade from left (dark) to right (transparent) */
+    /* Gradiente menor para revelar mais o planeta */
     .quem-somos-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, #080620 0%, #080620 30%, rgba(8,6,32,0.85) 45%, transparent 60%);
+      background: linear-gradient(90deg, #080620 0%, #080620 18%, rgba(8,6,32,0.75) 32%, transparent 48%);
       z-index: 1;
     }
     .quem-somos-container {
@@ -1383,11 +1383,13 @@
       z-index: 2;
       display: flex;
       flex-direction: column;
-      gap: 40px; /* Reduzido o espaço entre o texto e as estatísticas */
+      gap: 40px;
       width: 100%;
+      padding-left: 0;
     }
     .quem-somos-content {
-      max-width: 530px;
+      max-width: 480px;
+      margin-left: 0;
       /* Efeito de Vidro (Glassmorphism) */
       background: rgba(14, 11, 34, 0.45);
       padding: 36px; /* Reduzido o padding interno do vidro */
