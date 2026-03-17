@@ -224,8 +224,20 @@
       pointer-events: none;
     }
 
-    /* ── Névoa de transição — efeito esfumaçado em todas as dobras ── */
-    .hero-split::after,
+    /* ── Fade suave na transição hero → próxima seção ── */
+    .hero-split::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 220px;
+      pointer-events: none;
+      z-index: 3;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 100%, rgba(100,60,210,0.35) 0%, transparent 70%),
+        linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.75) 55%, #100C28 100%);
+    }
+
+    /* ── Névoa de transição — todas as demais dobras ── */
     .context::after,
     #para-quem::after,
     #servicos::after,
@@ -235,19 +247,10 @@
     .theme-black::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       height: 220px;
       pointer-events: none;
       z-index: 20;
-    }
-    /* Névoa roxa + escurecimento linear — cor sólida da próxima dobra no fundo */
-    .hero-split::after {
-      z-index: 3;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% 100%, rgba(100,60,210,0.35) 0%, transparent 70%),
-        linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.75) 55%, #100C28 100%);
     }
     .context::after {
       background:
