@@ -217,7 +217,12 @@
     }
 
     .hero-split .hero-bg::after {
-      display: none;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(80, 40, 220, 0.22);
+      z-index: 1;
+      pointer-events: none;
     }
 
     /* Fade suave na transição hero → próxima seção */
