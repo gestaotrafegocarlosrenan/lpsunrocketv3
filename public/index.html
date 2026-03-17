@@ -224,18 +224,33 @@
       pointer-events: none;
     }
 
-    /* Fade suave na transição hero → próxima seção */
-    .hero-split::after {
+    /* ── Fade suave de transição — aplicado em todas as dobras ── */
+    .hero-split::after,
+    .context::after,
+    #para-quem::after,
+    #servicos::after,
+    .quem-somos-section::after,
+    .wave-section::after,
+    .quality::after,
+    .theme-black::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 180px;
-      background: linear-gradient(to bottom, transparent 0%, rgba(10, 8, 28, 0.6) 50%, #100C28 100%);
-      z-index: 3;
+      height: 200px;
       pointer-events: none;
+      z-index: 20;
     }
+    /* Cor de destino de cada transição */
+    .hero-split::after    { background: linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.6) 50%, #100C28 100%); z-index: 3; }
+    .context::after       { background: linear-gradient(to bottom, transparent 0%, rgba(8,6,28,0.65) 55%, #0E0B22 100%); }
+    #para-quem::after     { background: linear-gradient(to bottom, transparent 0%, rgba(12,9,30,0.65) 55%, #100C28 100%); }
+    #servicos::after      { background: linear-gradient(to bottom, transparent 0%, rgba(8,6,24,0.65) 55%, #080620 100%); }
+    .quem-somos-section::after { background: linear-gradient(to bottom, transparent 0%, rgba(10,7,26,0.65) 55%, #0E0B22 100%); }
+    .wave-section::after  { background: linear-gradient(to bottom, transparent 0%, rgba(14,11,34,0.65) 55%, #0E0B22 100%); }
+    .quality::after       { background: linear-gradient(to bottom, transparent 0%, rgba(6,4,20,0.65) 55%, #0A0820 100%); }
+    .theme-black::after   { background: linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.65) 55%, #0E0B22 100%); }
 
     /* Painel esquerdo container */
     .hero-left {
@@ -672,45 +687,22 @@
       z-index: 1;
     }
 
-    /* ─── DIVIDER — mesmo efeito do hero: transparent → cor sólida ─── */
+    /* ─── DIVIDER — ponte de cor simples entre seções ─── */
     .divider {
       width: 100%;
-      height: 180px;
-      position: relative;
-      z-index: 5;
-      margin-top: -90px; /* sobrepõe o rodapé da seção anterior */
-      pointer-events: none;
-      /* Default: context(#100C28) → para-quem(#0E0B22) */
-      background: linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.55) 50%, #0E0B22 100%);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      display: block;
     }
-    /* para-quem(#0E0B22) → servicos(#100C28) */
-    .divider.d-purple-dark {
-      background: linear-gradient(to bottom, transparent 0%, rgba(12,9,30,0.55) 50%, #100C28 100%);
-    }
-    /* servicos(#100C28) → quem-somos(#080620) */
-    .divider.d-dark-deeper {
-      background: linear-gradient(to bottom, transparent 0%, rgba(8,6,24,0.55) 50%, #080620 100%);
-    }
-    /* quem-somos(#080620) → wave(#0E0B22) */
-    .divider.d-deeper-navy {
-      background: linear-gradient(to bottom, transparent 0%, rgba(10,7,26,0.55) 50%, #0E0B22 100%);
-    }
-    /* wave(#0E0B22) → quality(#0E0B22) */
-    .divider.d-same {
-      background: linear-gradient(to bottom, transparent 0%, rgba(14,11,34,0.55) 50%, #0E0B22 100%);
-    }
-    /* quality(#0E0B22) → theme-black(#0A0820) */
-    .divider.d-to-black {
-      background: linear-gradient(to bottom, transparent 0%, rgba(6,4,20,0.6) 50%, #0A0820 100%);
-    }
-    /* theme-black(#0A0820) → cta(#0E0B22) */
-    .divider.d-from-black {
-      background: linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.55) 50%, #0E0B22 100%);
-    }
-    /* cta(#0E0B22) → faq(#100C28) */
-    .divider.d-navy-dark {
-      background: linear-gradient(to bottom, transparent 0%, rgba(12,9,30,0.55) 50%, #100C28 100%);
-    }
+    /* Variantes mantidas por compatibilidade mas sem visual */
+    .divider.d-purple-dark,
+    .divider.d-dark-deeper,
+    .divider.d-deeper-navy,
+    .divider.d-same,
+    .divider.d-to-black,
+    .divider.d-from-black,
+    .divider.d-navy-dark { height: 0; }
 
     /* ─── LUZES DE FUNDO POR SEÇÃO ─── */
     /* Glows adicionais removidos — agora o radial-gradient está no background de cada section */
@@ -1431,15 +1423,6 @@
       inset: 0;
       background: linear-gradient(90deg, #080620 0%, #080620 18%, rgba(8,6,32,0.75) 32%, transparent 48%);
       z-index: 1;
-    }
-    /* Gradiente de baixo — fade suave para a próxima dobra */
-    .quem-somos-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 50%, rgba(8,6,32,0.7) 75%, #080620 100%);
-      z-index: 2;
-      pointer-events: none;
     }
     .quem-somos-container {
       position: relative;
