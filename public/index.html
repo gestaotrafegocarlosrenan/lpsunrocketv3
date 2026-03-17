@@ -672,34 +672,44 @@
       z-index: 1;
     }
 
-    /* ─── DIVIDER ─── */
+    /* ─── DIVIDER — mesmo efeito do hero: transparent → cor sólida ─── */
     .divider {
       width: 100%;
-      height: 100px;
+      height: 180px;
       position: relative;
-      /* Default: dark purple → dark navy (transição suave padrão) */
-      background: linear-gradient(to bottom, #100C28, #0E0B22);
+      z-index: 5;
+      margin-top: -90px; /* sobrepõe o rodapé da seção anterior */
+      pointer-events: none;
+      /* Default: context(#100C28) → para-quem(#0E0B22) */
+      background: linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.55) 50%, #0E0B22 100%);
     }
+    /* para-quem(#0E0B22) → servicos(#100C28) */
     .divider.d-purple-dark {
-      background: linear-gradient(to bottom, #0E0B22, #100C28);
+      background: linear-gradient(to bottom, transparent 0%, rgba(12,9,30,0.55) 50%, #100C28 100%);
     }
+    /* servicos(#100C28) → quem-somos(#080620) */
     .divider.d-dark-deeper {
-      background: linear-gradient(to bottom, #100C28, #080620);
+      background: linear-gradient(to bottom, transparent 0%, rgba(8,6,24,0.55) 50%, #080620 100%);
     }
+    /* quem-somos(#080620) → wave(#0E0B22) */
     .divider.d-deeper-navy {
-      background: linear-gradient(to bottom, #080620, #0E0B22);
+      background: linear-gradient(to bottom, transparent 0%, rgba(10,7,26,0.55) 50%, #0E0B22 100%);
     }
+    /* wave(#0E0B22) → quality(#0E0B22) */
     .divider.d-same {
-      background: linear-gradient(to bottom, #0E0B22 0%, rgba(90,50,230,0.08) 50%, #0E0B22 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(14,11,34,0.55) 50%, #0E0B22 100%);
     }
+    /* quality(#0E0B22) → theme-black(#0A0820) */
     .divider.d-to-black {
-      background: linear-gradient(to bottom, #0E0B22, #0A0820);
+      background: linear-gradient(to bottom, transparent 0%, rgba(6,4,20,0.6) 50%, #0A0820 100%);
     }
+    /* theme-black(#0A0820) → cta(#0E0B22) */
     .divider.d-from-black {
-      background: linear-gradient(to bottom, #0A0820, #0E0B22);
+      background: linear-gradient(to bottom, transparent 0%, rgba(10,8,28,0.55) 50%, #0E0B22 100%);
     }
+    /* cta(#0E0B22) → faq(#100C28) */
     .divider.d-navy-dark {
-      background: linear-gradient(to bottom, #0E0B22, #100C28);
+      background: linear-gradient(to bottom, transparent 0%, rgba(12,9,30,0.55) 50%, #100C28 100%);
     }
 
     /* ─── LUZES DE FUNDO POR SEÇÃO ─── */
