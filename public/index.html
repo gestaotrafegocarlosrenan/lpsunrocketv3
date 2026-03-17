@@ -1414,13 +1414,22 @@
       top: 0;
       opacity: 1;
     }
-    /* Gradiente menor para revelar mais o planeta */
+    /* Gradiente lateral esquerdo */
     .quem-somos-bg::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(90deg, #080620 0%, #080620 18%, rgba(8,6,32,0.75) 32%, transparent 48%);
       z-index: 1;
+    }
+    /* Gradiente de baixo — fade suave para a próxima dobra */
+    .quem-somos-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(8,6,32,0.7) 75%, #080620 100%);
+      z-index: 2;
+      pointer-events: none;
     }
     .quem-somos-container {
       position: relative;
