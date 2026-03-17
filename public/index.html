@@ -587,6 +587,7 @@
       border-radius: 13px;
       padding: 3px;
       overflow: hidden;
+      animation: pulse-glow-shadow 2s ease-in-out infinite;
     }
     .btn-glow-wrap.mini {
       border-radius: 11px;
@@ -601,19 +602,33 @@
       background: conic-gradient(
         from 0deg,
         transparent 0%,
-        rgba(155,127,255,0) 25%,
-        rgba(180,150,255,0.85) 42%,
-        rgba(230,210,255,1) 50%,
-        rgba(180,150,255,0.85) 58%,
-        rgba(155,127,255,0) 75%,
+        transparent 12%,
+        rgba(192,132,252,0.5) 26%,
+        rgba(255,255,255,1) 38%,
+        rgba(255,255,255,1) 50%,
+        rgba(255,255,255,1) 62%,
+        rgba(192,132,252,0.5) 74%,
+        transparent 88%,
         transparent 100%
       );
-      animation: btn-spin-glow 2.5s linear infinite;
+      animation: btn-spin-glow 2s linear infinite;
       z-index: 0;
     }
     @keyframes btn-spin-glow {
       from { transform: rotate(0deg); }
       to   { transform: rotate(360deg); }
+    }
+    @keyframes pulse-glow-shadow {
+      0%, 100% {
+        box-shadow: 0 0 8px rgba(192,132,252,0.6),
+                    0 0 20px rgba(192,132,252,0.35),
+                    0 0 40px rgba(192,132,252,0.15);
+      }
+      50% {
+        box-shadow: 0 0 16px rgba(192,132,252,0.95),
+                    0 0 35px rgba(192,132,252,0.6),
+                    0 0 65px rgba(232,121,249,0.3);
+      }
     }
     .btn-glow-wrap > * {
       position: relative;
@@ -1708,8 +1723,9 @@
       position: relative;
       display: inline-block;
       border-radius: 13px;
-      padding: 2px;
+      padding: 3px;
       overflow: hidden;
+      animation: pulse-glow-shadow 2s ease-in-out infinite;
     }
     .btn-glow-outer::before {
       content: '';
@@ -1721,14 +1737,16 @@
       background: conic-gradient(
         from 0deg,
         transparent 0%,
-        rgba(155,127,255,0) 20%,
-        rgba(180,150,255,0.9) 40%,
-        rgba(230,210,255,1) 50%,
-        rgba(180,150,255,0.9) 60%,
-        rgba(155,127,255,0) 80%,
+        transparent 12%,
+        rgba(192,132,252,0.5) 26%,
+        rgba(255,255,255,1) 38%,
+        rgba(255,255,255,1) 50%,
+        rgba(255,255,255,1) 62%,
+        rgba(192,132,252,0.5) 74%,
+        transparent 88%,
         transparent 100%
       );
-      animation: btn-spin-glow 2.5s linear infinite;
+      animation: btn-spin-glow 2s linear infinite;
       z-index: 0;
     }
     .btn-glow-outer > * {
