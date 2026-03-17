@@ -587,7 +587,13 @@
       border-radius: 13px;
       padding: 3px;
       overflow: hidden;
-      animation: pulse-glow-shadow 2s ease-in-out infinite;
+      /* sem animation aqui — não conflita com o fadeUp herdado */
+    }
+    /* Pulso do halo externo aplicado separadamente no botão hero */
+    .hero-content > .btn-glow-wrap {
+      animation: fadeUp 0.6s ease 0.85s forwards, pulse-glow-shadow 2s ease-in-out 1.5s infinite;
+      opacity: 0;
+      transform: translateY(20px);
     }
     .btn-glow-wrap.mini {
       border-radius: 11px;
