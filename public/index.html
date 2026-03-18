@@ -793,14 +793,17 @@
     .context-text strong { color: var(--white); font-weight: 700; }
 
     .context-highlight {
-      margin-top: 28px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--white);
-      border-left: 3px solid #7B5CFA;
-      box-shadow: -4px 0 20px rgba(123,92,250,0.3);
-      padding-left: 20px;
+      margin-top: 32px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      border-left: 4px solid #7B5CFA;
+      padding: 14px 20px;
       line-height: 1.6;
+      background: rgba(91,53,232,0.12);
+      border-radius: 0 12px 12px 0;
+      box-shadow: -4px 0 28px rgba(123,92,250,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+      text-shadow: 0 0 20px rgba(167,139,250,0.4);
     }
 
     .stats-col { display: flex; flex-direction: column; gap: 2px; }
@@ -2202,6 +2205,7 @@
       /* ── CONTEXT ── */
       .context .container { max-width: 100%; }
       .context-text p { font-size: 0.95rem; }
+      .context-highlight { font-size: 1.05rem; padding: 12px 16px; }
       .context-highlight { font-size: 0.95rem; }
 
       /* ── PARA QUEM ── */
