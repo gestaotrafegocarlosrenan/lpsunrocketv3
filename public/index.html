@@ -3345,12 +3345,64 @@
     observer.observe(document.body, { childList: true, subtree: true });
   })();
 
-  function submitForm() {
-    // Aqui você pode integrar com sua API / webhook
-    document.getElementById('modalSteps').style.display = 'none';
-    document.getElementById('modalNav').style.display = 'none';
+  /* ─── CAPTURA DE UTMs ─── */
+  (function captureUTMs() {
+    const params = new URLSearchParams(window.location.search);
+    const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','keyword','device','network'];
+    utmKeys.forEach(key => {
+      const val = params.get(key);
+      if (val) localStorage.setItem(key, val);
+    });
+    // Armazena também a URL de origem e data do primeiro acesso
+    if (!localStorage.getItem('first_visit')) {
+      localStorage.setItem('first_visit', new Date().toISOString());
+      localStorage.setItem('landing_url', window.location.href);
+    }
+    localStorage.setItem('last_visit', new Date().toISOString());
+  })();
+
+  /* ─── WEBHOOK + SUBMIT ─── */
+  const WEBHOOK_URL = 'https://hook.eu1.make.com/3fv768m71sluiizthcb8i6ank16chhgf';
+
+  function getUTMData() {
+    const keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','keyword','device','network','first_visit','last_visit','landing_url'];
+    const data = {};
+    keys.forEach(k => { data[k] = localStorage.getItem(k) || ''; });
+    return data;
+  }
+
+  async function submitForm() {
+    // Coleta dados do formulário
+    const payload = {
+      // Dados pessoais
+      nome:        document.getElementById('f-nome')?.value?.trim()    || '',
+      email:       document.getElementById('f-email')?.value?.trim()   || '',
+      whatsapp:    document.getElementById('f-wpp')?.value?.trim()     || '',
+      empresa:     document.getElementById('f-empresa')?.value?.trim() || '',
+      faturamento: selectedRevenue || '',
+      // UTMs e rastreamento
+      ...getUTMData(),
+      // Timestamp do envio
+      enviado_em:  new Date().toISOString(),
+      pagina:      window.location.href,
+    };
+
+    // Mostra tela de sucesso imediatamente (UX)
+    document.getElementById('modalSteps').style.display    = 'none';
+    document.getElementById('modalNav').style.display      = 'none';
     document.getElementById('modalProgress').style.display = 'none';
     document.getElementById('modalSuccess').classList.add('active');
+
+    // Dispara o webhook em background
+    try {
+      await fetch(WEBHOOK_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.warn('Webhook error:', err);
+    }
   }
 </script>
 
