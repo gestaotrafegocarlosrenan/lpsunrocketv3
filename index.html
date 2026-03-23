@@ -207,6 +207,30 @@
         #100C28;
     }
 
+    /* Planeta grande no Hero — lado direito, atrás da imagem */
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -150px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%,
+        #3D2D8A 0%,
+        #1E1650 40%,
+        #0C0A1E 70%,
+        transparent 100%
+      );
+      box-shadow:
+        0 0 80px rgba(91, 53, 232, 0.4),
+        0 0 160px rgba(60, 30, 180, 0.2),
+        inset -20px -20px 60px rgba(0,0,0,0.5);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     /* Painel esquerdo */
     .hero-left {
       flex: 0 0 55%;
@@ -1004,6 +1028,26 @@
       .cs-scroll-hint svg { animation: none; }
     }
 
+    /* ─── PLANETA — Social Proof ─── */
+    .section-proof::after {
+      content: '';
+      position: absolute;
+      left: -80px;
+      top: 50%;
+      transform: translateY(-60%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 30%,
+        #4A2FA8 0%,
+        #1C1440 50%,
+        transparent 80%
+      );
+      box-shadow: 0 0 60px rgba(74, 47, 168, 0.35);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     /* ─── SOCIAL PROOF ─── */
     .proof-grid {
       display: grid;
@@ -1590,6 +1634,17 @@
       .form-wrap { padding: 32px 24px; }
       section { padding: 80px 20px; }
 
+      /* Planeta menor no mobile */
+      .hero::after {
+        width: 300px;
+        height: 300px;
+        right: -100px;
+        opacity: 0.6;
+      }
+
+      /* Planeta menor escondido no mobile */
+      .section-proof::after { display: none; }
+
       /* Anéis menores no mobile */
       .cta-section::before { width: 300px; height: 300px; }
       .cta-section::after  { width: 450px; height: 450px; }
@@ -1794,7 +1849,7 @@
 <div class="divider"></div>
 
 <!-- SOCIAL PROOF -->
-<section class="theme-white">
+<section class="theme-white section-proof">
   <div class="container">
     <div class="section-line"><span class="section-label">Resultados reais</span></div>
     <h2 class="section-title">Quem já colocou a operação em órbita.</h2>
